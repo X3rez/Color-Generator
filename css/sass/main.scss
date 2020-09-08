@@ -1,0 +1,78 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+}
+@mixin transition($p,$d){
+    transition:$p $d;
+    -webkit-transition:$p $d;
+    -moz-transition:$p $d;
+    -ms-transition:$p $d;
+    -o-transition:$p $d;
+}
+@mixin border-radius($r){
+    border-radius: $r;
+    -webkit-border-radius: $r;
+    -moz-border-radius: $r;
+    -ms-border-radius: $r;
+    -o-border-radius: $r;
+}
+
+.header{
+    background-color:#ffffff;
+    color: #eb9800;
+    padding: .5em;
+    text-align: center;
+}
+.main{
+    background-color: #fffbfb;
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.container{
+    background-color: #000000;
+    width:90%;
+    height: 3em;
+    font-size: 2.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include border-radius(5px);
+
+    &_text{
+        color: #ffffff;
+        display: inline-block;
+        margin-right: .2em;
+    }
+    &_second-text{
+        display: inline-block;
+        color: #eb9800;
+    }
+
+    @media screen and (max-width:520px) {
+        font-size: 1rem;
+        height: 8em;
+    }
+}
+
+.button{
+    margin-top: 3em;
+    padding: .5em;
+    border: 3px solid #eb9800;
+    background: transparent;
+    font-size:1.6rem;
+    font-weight:bold;
+    @include border-radius(5px);
+    cursor: pointer;
+    outline:none;
+    @include transition(background,.5s);
+    
+    &:hover{
+        background: #eb9800;
+    }
+}
